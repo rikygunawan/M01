@@ -1,11 +1,12 @@
-const express = require('express')
-const app = express()
+const http = require('http')
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.json('ini home')
+const server = http.createServer((req,res)=>{
+  if(req.url == '/' ){
+    res.write('Menggunakan http Module')
+    res.end();
+  }
+  
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+server.listen(port)
